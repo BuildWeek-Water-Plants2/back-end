@@ -8,6 +8,17 @@ const authRouter = require('../auth/auth-router.js');
 
 const server = express();
 
+server.get('/', async (req, res) => {
+    try {
+      const shoutouts = await db('shoutouts');
+      const messageOfTheDay = process.env.MOTD || 'Hello World!';
+      res.status(200).json({ motd: messageOfTheDay, shoutouts });
+    } catch (error) {
+      console.error('\nERROR', error);
+      res.status(500).json({ error: 'Cannot retrieve' });
+    }
+  });
+
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
