@@ -6,6 +6,9 @@
   "scripts": {
     "server": "nodemon index.js"
   },
+  "engines":{
+      "node": "12.13.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BuildWeek-Water-Plants2/back-end.git"
