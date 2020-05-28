@@ -20,6 +20,7 @@ router.post('/register', validateUserData, (req, res) => {
       res.status(201).json({message: 'user successfully created'});
     })
     .catch(err => {
+      console.log(err)
       res.status(500).json(err);
     })
 });
@@ -33,8 +34,10 @@ router.post('/login', (req, res) => {
       const token = generateToken(user);
       res.status(200).json({message: `welcome, ${user.username}!`, token});
     } else {
+      console.log(res)
       res.status(404).json({ errorMessage: 'invalid credentials' });
     }
+    
   })
 });
 
