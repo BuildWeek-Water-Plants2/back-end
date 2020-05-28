@@ -61,9 +61,6 @@
 
 **Expected Parameter:** The id of the plant
 
-## GET /api/sleep/:userid
-
-**Expected Parameter:** The user_id from local storage
 
 
 ```
