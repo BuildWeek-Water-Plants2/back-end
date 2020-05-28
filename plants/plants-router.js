@@ -20,8 +20,8 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', authenticate, (req, res) => {
-    const { pName, pContent, user } = req.body;
-    db.newPlant({ pName, pContent, user })
+    const { nickname, species, water, user_id } = req.body;
+    db.newPlant({ nickname, species, water, user_id })
         .then(count => {
             db.findPlants(req.params.id)
                 .then(function (data) {
@@ -29,6 +29,7 @@ router.post('/', authenticate, (req, res) => {
                 })
         })
         .catch(err => {
+            console.log(err)
             res.status(500).json(err);
         });
 });
