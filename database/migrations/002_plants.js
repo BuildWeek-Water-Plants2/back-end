@@ -12,6 +12,13 @@ exports.up = function(knex) {
       plants
       .integer('water')
       .notNullable();
+      plants
+      .integer('user_id')
+      .unsigned()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     });
   };
   

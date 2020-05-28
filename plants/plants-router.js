@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('./plant-model');
-const { authenticate } = require('../auth/authenticate-middleware');
+const authenticate = require('../auth/authenticate-middleware');
 
 
 router.get('/', (req, res) => {
